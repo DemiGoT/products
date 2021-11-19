@@ -1,0 +1,91 @@
+.cards-list-item {
+    background-color: #fff;
+    border-radius: 24px;
+    padding: 32px;
+    transition: all 0.2s;
+}
+
+.cards-list-item:hover {
+    box-shadow: 24px 24px 40px rgba(75, 207, 160, 0.08);
+    -moz-box-shadow: 24px 24px 40px rgba(75, 207, 160, 0.08);
+    -webkit-box-shadow: 24px 24px 40px rgba(75, 207, 160, 0.08);
+    transition: all 0.2s;
+}
+
+.cards {
+    padding-top: 100px;
+}
+
+.cards-list-item__category {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #000000;
+    opacity: 0.5;
+}
+
+.cards-list-item__name {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+    letter-spacing: -0.02em;
+    color: #000000;
+    margin-top: 8px;
+}
+
+.cards-list-item__name::first-letter {
+    text-transform: uppercase;
+}
+
+.cards-list-item__price {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 60px;
+    letter-spacing: -0.02em;
+    color: #000000;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    -webkit-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    -ms-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.cards-list-item__price::before {
+    content: '$';
+    display: inline;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    letter-spacing: -0.02em;
+    color: #000000;
+    vertical-align: text-top;
+    margin-right: 5px;
+    margin-bottom: 15px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    -webkit-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    -ms-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.cards-list-item-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-cheapest {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-cheapest .btn {
+    padding: 16 48px;
+    margin-top: 69px;
+}

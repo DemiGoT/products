@@ -1,0 +1,97 @@
+.modal-label {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+}
+
+.modal-label input {
+    padding: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    border-radius: 16px;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    letter-spacing: -0.02em;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-label span {
+    margin-top: 5px;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    color: #E43F3F;
+}
+
+.modal-close {
+    background-size: 100%;
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    cursor: pointer;
+    border-radius: 24px;
+    width: 40px;
+    height: 40px;
+    background-color: #F2F2F2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-close {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    display: block;
+    font-size: 12px;
+    padding: 0;
+}
+
+.ReactModal__Overlay {
+    background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+.ReactModalPortal .cards-list-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.ReactModalPortal .cards-list-item:hover {
+    box-shadow: none;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.modal-button {
+    width: 100%;
+}
+
+.error {
+    border: 1px solid #E43F3F!important;
+}
+
+.success {
+    border: 1px solid #4BCFA0!important;
+}
+
+@media(max-width: 425px) {
+    .modal {
+        padding: 25px !important;
+        padding-bottom: 50px !important;
+        min-width: auto !important;
+    }
+
+    .modal-close {
+        right: 15px;
+        top: 15px;
+        background-color: transparent;
+    }
+}
