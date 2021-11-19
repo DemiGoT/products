@@ -16,15 +16,13 @@ function Cards({ products, productLoadedFunc }) {
     const [loading, setLoading] = useState(true);
     const [modalIsOpen, setIsOpen] = useState(false);
     const [activeProduct, setActiveProduct] = useState({});
-    const [cheapest , setCheapest] = useState({});
 
     useEffect(() => {
         getProducts().then((productData) => {
-            findCheapes(productData.data);
             productLoadedFunc(productData.data);
             setLoading(false);
         });
-    }, [])
+    }, [productLoadedFunc])
 
     function openModal(product) {
         setActiveProduct(product);
@@ -35,8 +33,9 @@ function Cards({ products, productLoadedFunc }) {
         setIsOpen(false);
     }
 
-    function findCheapes(productData) {
-        setCheapest(productData.reduce((prev, curr) => { return prev.price < curr.price ? prev : curr }));
+    function findCheapest() {
+        const chiepest = products.reduce((prev, curr) => { return prev.price < curr.price ? prev : curr });
+        openModal(chiepest);
     }
 
     return (
@@ -66,7 +65,7 @@ function Cards({ products, productLoadedFunc }) {
                             }
                         </div>
                         <div className="card-cheapest">
-                            <button type="button" className="btn" onClick={() => openModal(cheapest)}>Buy Cheapest</button>
+                            <button type="button" className="btn" onClick={() => findCheapest()}>Buy Cheapest</button>
                         </div>
                     </React.Fragment>
                 }

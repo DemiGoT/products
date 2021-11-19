@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './modals.css';
 import "../cards/cards.css"
 import Modal from 'react-modal';
@@ -28,10 +28,9 @@ const customStyles = {
 
 Modal.setAppElement('#root');
 
-function ProductModal({ activeProduct, modalIsOpen, closeModal, cheapest }) {
+function ProductModal({ activeProduct, modalIsOpen, closeModal }) {
 
     const [user, setUser] = useState({});
-    const [product, setProduct] = useState();
     const [validation, setValidation] = useState({
         name: {
             error: '',
@@ -43,6 +42,20 @@ function ProductModal({ activeProduct, modalIsOpen, closeModal, cheapest }) {
         }
     });
 
+    useEffect(() => {
+        const newProduct = {
+            name: {
+                error: '',
+                validated: false,
+            },
+            phone: {
+                error: '',
+                validated: false,
+            }
+        }
+        setValidation(newProduct);
+    }, [activeProduct])
+
     function handleChange(event) {
         setUser({ ...user, [event.target.name]: event.target.value });
         setValidation({
@@ -53,10 +66,6 @@ function ProductModal({ activeProduct, modalIsOpen, closeModal, cheapest }) {
             }
         });
     }
-
-    useEffect(() => {
-        setProduct(activeProduct);
-    }, [activeProduct]);
 
     function handleValidator(e, validator) {
         setValidation({
@@ -79,7 +88,7 @@ function ProductModal({ activeProduct, modalIsOpen, closeModal, cheapest }) {
                 validated: true,
             }
         }
-        
+
         setValidation(validationObj);
 
         if (!validationObj.name.error && !validationObj.phone.error) {
@@ -104,13 +113,6 @@ function ProductModal({ activeProduct, modalIsOpen, closeModal, cheapest }) {
                     <p className="cards-list-item__category">{activeProduct.category}</p>
                     <p className="cards-list-item__name">{activeProduct.name}</p>
                     <p className="cards-list-item__price">{activeProduct.price}</p>
-                </div>
-            }
-            {cheapest &&
-                <div className="cards-list-item">
-                    <p className="cards-list-item__category">{cheapest.category}</p>
-                    <p className="cards-list-item__name">{cheapest.name}</p>
-                    <p className="cards-list-item__price">{cheapest.price}</p>
                 </div>
             }
             <div>
